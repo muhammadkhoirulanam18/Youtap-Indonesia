@@ -1,0 +1,28 @@
+# build output
+dist/
+.netlify
+.output
+.firebase
+.vercel
+
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# system
+.DS_Store
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Astro
+.astro/
