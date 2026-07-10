@@ -1,0 +1,22 @@
+---
+// src/layouts/BaseLayout.astro
+import BaseHead from '../components/BaseHead.astro';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = 'Youtap Indonesia', description = 'Company Profile' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<slot name="head" />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
