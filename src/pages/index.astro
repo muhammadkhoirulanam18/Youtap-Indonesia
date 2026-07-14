@@ -198,4 +198,42 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animasi Fade-in & Up untuk elemen teks secara independen
+      gsap.utils.toArray('.title, .description, .sub-head').forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+      });
+
+      // Animasi stagger (berurutan) untuk Product Cards
+      const cards = document.querySelectorAll('.youtap---solusi-card');
+      if (cards.length > 0) {
+        gsap.from(cards, {
+          scrollTrigger: {
+            trigger: cards[0],
+            start: "top 85%",
+          },
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power2.out"
+        });
+      }
+    }
+  });
+</script>
+
 </BaseLayout>

@@ -246,4 +246,26 @@ https://webforms.pipedrive.com/f/loader"></script>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2DNLPB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!--  End Google Tag Manager (noscript)  -->
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Animasi Fade-in & Up untuk elemen teks dan block form
+      gsap.utils.toArray('.title, .description, .block-div-form-contact-us').forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power2.out"
+        });
+      });
+    }
+  });
+</script>
+
 </BaseLayout>
